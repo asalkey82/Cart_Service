@@ -48,4 +48,4 @@ def removeFromCart(product_id, user_id):
     return jsonify({"message": "Product removed"})
 
 if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+    app.run(debug=True)

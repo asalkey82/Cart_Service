@@ -17,13 +17,13 @@ customers = [
 
 BASE_URL = "https://carl-mart.onrender.com"
 
-@app.route('/cart/<string:user_id>', methods=['GET'])
+@app.route('/cart/<Int:user_id>', methods=['GET'])
 def get_cart(user_id):
     customer = next((customer for customer in customers if customer["user"] == user_id), None)
     if customer:
         return jsonify({"customer": customer})
     else:
-        return jsonify({"error": "Task not found"}), 404
+        return jsonify({"error": "Customer not found"}), 404
     
 @app.route('/cart/<int:user_id>/add/<int:product_id>', methods=['POST'])
 def addToCart(product_id, user_id):
